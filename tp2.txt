@@ -42,3 +42,6 @@ Réponse au question du TP2
 
 2.6) NON
 
+2.7) permet de voir les lignes ajouter enlever et modifier
+
+3.1) NON
