@@ -31,3 +31,7 @@ Réponse au question du TP2
 2.2) Master
 
 2.5) NON
+
+2.6) NON
+
+2.7) Affiche les lignes modifier , enlever ou ajouter
