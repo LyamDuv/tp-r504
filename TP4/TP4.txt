@@ -14,4 +14,8 @@ docker volume prune -f
 2.3
 docker network create --driver bridge net-tp4
 
-2.4
+2.9
+
+Taille image debian 11: 124MB
+
+Taille image im-tp4: 795 MB

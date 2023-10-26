@@ -1,0 +1,1 @@
+docker build -t im-tp4 -f ~/tp-r504/TP4/Dockerfile1 .
