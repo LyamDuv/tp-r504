@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3'
+services:
+  s-app:
+    build: ./appli  # Utilisez le nom correct du dossier
+    ports:
+      - "5000"
+  s-nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - s-app
