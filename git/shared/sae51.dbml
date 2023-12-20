@@ -1,0 +1,65 @@
+Project GestionParcInformatique {
+  Note: '''
+    Base de données pour la gestion d'un parc informatique
+  '''
+}
+
+Table Ordinateurs {
+  id int [pk, increment]
+  nom_ordinateur varchar [not null]
+  configuration_materielle text
+  systeme_exploitation varchar
+  date_achat date
+  date_fin_garantie date
+  derniere_mise_a_jour date
+  playbook_ansible varchar
+  marque_ordinateur varchar
+  ram_gb int
+}
+
+Table Logiciels {
+  id int [pk, increment]
+  nom_logiciel varchar [not null]
+  version varchar
+  cle_licence varchar
+  date_installation date
+  id_ordinateur int [ref: > Ordinateurs.id]
+}
+
+Table Utilisateurs {
+  id int [pk, increment]
+  nom_utilisateur varchar [not null]
+  email varchar
+  numero_telephone varchar
+}
+
+Table Affectations {
+  id int [pk, increment]
+  id_ordinateur int [ref: > Ordinateurs.id]
+  id_utilisateur int [ref: > Utilisateurs.id]
+  date_affectation date
+}
+
+Table Maintenance {
+  id int [pk, increment]
+  id_ordinateur int [ref: > Ordinateurs.id]
+  date_maintenance date
+  description_maintenance text
+  actions_effectuees text
+  technicien varchar
+}
+
+Table Problemes {
+  id int [pk, increment]
+  id_ordinateur int [ref: > Ordinateurs.id]
+  date_probleme date
+  description_probleme text
+  actions_prises text
+}
+
+Table MisesAJour {
+  id int [pk, increment]
+  id_ordinateur int [ref: > Ordinateurs.id]
+  date_mise_a_jour date
+  description_mise_a_jour text
+}

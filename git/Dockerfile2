@@ -1,0 +1,31 @@
+# Utiliser l'image Ubuntu 22.04
+FROM ubuntu:22.04
+
+# Installer les paqeuts
+RUN apt-get update
+
+# Installer python3 et MySQL
+RUN apt-get install -y python3
+
+RUN apt-get update
+
+RUN apt-get install -y python3-pip
+
+RUN apt-get update
+
+# Installer le connecteur MySQL pour Python
+# RUN pip install mysql-connector-python
+
+# Installer flask
+# RUN pip install Flask==2.0.1
+
+# RUN pip install jsonify
+
+# Ajoutez l'installation de Flask et jsonify avec des versions spécifiques
+RUN pip install Flask==2.0.1 Werkzeug==2.0.2 mysql-connector-python==8.0.28 jsonify
+
+COPY request2.py /app/request2.py
+
+WORKDIR /app
+
+CMD python3 request2.py && bash
