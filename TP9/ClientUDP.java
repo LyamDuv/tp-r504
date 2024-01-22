@@ -3,7 +3,7 @@ import java.net.*;
 
 public class ClientUDP
 {
-	public static void main()
+	public static void main(String[] args)
 	{
 		try
 		{
