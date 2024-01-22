@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class ServeurTCP2 {
+public class ServeurTCP3 {
     public static void main(String[] args) {
         try {
             ServerSocket socketserver = new ServerSocket(2016);
@@ -14,10 +14,18 @@ public class ServeurTCP2 {
 
 
                 DataInputStream dIn = new DataInputStream(socket.getInputStream());
-                System.out.println("Message du client : " + dIn.readUTF());
+                String receivedMessage = dIn.readUTF();
+
+
+                String reversedMessage = new StringBuilder(receivedMessage).reverse().toString();
+
+
+                DataOutputStream dOut = new DataOutputStream(socket.getOutputStream());
+                dOut.writeUTF(reversedMessage);
 
 
                 dIn.close();
+                dOut.close();
                 socket.close();
             }
         } catch (Exception ex) {
