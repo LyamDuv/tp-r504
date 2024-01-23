@@ -1,7 +1,8 @@
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import java.io.* ;
+import org.apache.http.HttpEntity ;
+import org.apache.http.client.* ;
+import org.apache.http.client.methods.* ;
+import org.apache.http.impl.client.* ;
 
 public class Client1 
 {
@@ -9,21 +10,19 @@ public class Client1
 	{
 		if (args.length != 1)
 			{
-			System.out.println("Usage: java -classpath \".:~/lib/*\" Client1 <server_url>");
+			System.out.println("Usage: java -classpath \".:/home/user/lib/*\" Client1 <server_url>");
 			System.exit(1);
 			}
+
 
 		String serverUrl = args[0];
 
 		try
 			{
-			// Exemple d'utilisation d'Apache HttpComponents pour envoyer une requête GET
-			CloseableHttpClient httpClient = HttpClients.createDefault();
-			HttpGet httpGet = new HttpGet(serverUrl);
-
-			HttpResponse response = httpClient.execute(httpGet);
-
-			httpClient.close();
+			
+			CloseableHttpClient client = HttpClients . createDefault () ;
+			String url = " http :// " + args [0];
+			HttpGet request = new HttpGet ( url ) ;
 			}
 		catch (Exception e)
 		{
