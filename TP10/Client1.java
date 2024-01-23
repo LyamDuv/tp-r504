@@ -20,7 +20,7 @@ public class Client1
 		try
 			{
 			
-			CloseableHttpClient client = HttpClients . createDefault () ;
+			CloseableHttpClient client = HttpClients.createDefault () ;
 			String url = " http :// " + args [0];
 			HttpGet request = new HttpGet ( url ) ;
 			}
