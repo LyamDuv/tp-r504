@@ -1,1 +1,1 @@
-java -classpath ".:/home/user/lib/*" OMDbAPIClient $1
+java -classpath ".:/home/user/lib/*" Client3 $1

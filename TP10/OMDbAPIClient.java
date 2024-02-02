@@ -33,13 +33,13 @@ public class OMDbAPIClient {
                         String line;
                         while ((line = rd.readLine()) != null) {
                             result.append(line);
-                            result.append("\n"); /
+                            result.append("\n"); 
                         }
 
                         
                         try (PrintWriter writer = new PrintWriter("omdb_response.json")) {
                             writer.println(result.toString());
-                            System.out.println("Response Content has been written to omdb_response.json");
+                            System.out.println("reponse écrite dand omdb_response.json");
                         }
                     }
                 }
