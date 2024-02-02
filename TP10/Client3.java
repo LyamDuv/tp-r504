@@ -42,6 +42,7 @@ public class Client3 {
 
                             if (jsonObject.getString("Response").equalsIgnoreCase("True")) {
                                 // Le film a été trouvé
+                                System.out.println("Titre : " + jsonObject.getString("Title"));
                                 System.out.println("Date de sortie : " + jsonObject.getString("Released"));
                                 System.out.println("Acteurs principaux : " + jsonObject.getString("Actors"));
 
