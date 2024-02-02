@@ -1,0 +1,4 @@
+Executing request GET http://www.omdbapi.com/?apikey=751ea6aa&t=www.omdbapi.com%2F%3Fapikey%3D751ea6aa%26t%3DAvengers HTTP/1.1
+Response Line: HTTP/1.1 200 OK
+Response Code: 200
+Response Content has been written to omdb_response.json
