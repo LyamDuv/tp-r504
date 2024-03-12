@@ -1,0 +1,54 @@
+Q1.1)debsecan | wc -l 767 CVE
+
+Q1.2)debsecan --suite bullseye | wc -l 767 CVE
+
+Q1.3)debsecan --suite bullseye --only-fixed | wc -l 337 CVE
+
+Q1.4) debsecan --suite bullseye | wc -l 430  ou  debsecan --suite bullseye --only-fixed | wc -l 0
+
+Q1.5)script cron.sh :
+#!/bin/bash
+
+# Chemin vers le script de scan
+scan_script="/home/user/tp-r504/TP14/scan.sh"
+
+# Chemin vers le fichier de crontab temporaire
+tempo="/tmp/temp_cron_file"
+
+# Ligne de crontab à ajouter
+crone="30 2 * * * $scan_script"
+#crone="* * * * * $scan_script"
+# Création du fichier temporaire avec la nouvelle crontab
+echo "$crone" > "$tempo"
+
+# Installer la nouvelle crontab
+crontab "$tempo"
+
+# Supprimer le fichier temporaire
+rm "$tempo"
+
+
+
+scan.sh :
+
+#!/bin/bash
+
+# Chemin vers le fichier de sortie du rapport de vulnérabilités
+sortie="/home/user/tp-r504/TP14/result.txt"
+
+# Exécute la commande debsecan et enregistre le résultat dans le fichier de sortie
+debsecan --suite=bullseye > $sortie
+echo "Nombre de CVE:" >> $sortie
+debsecan --suite=bullseye | wc -l >> $sortie
+echo "L'heure du scan $(date +'%H:%M:%S')" >> $sortie
+
+Q2.6 )sudo apt install lynis
+
+Q2.7) sudo apt install colorized-logs xdg-utils
+
+Q2.8)sudo lynis audit system --cronjob | colorized-logs | ansi2html -l > rapport-lynis.html
+
+Q2.9) 43 Suggestion.
+Q2.10) e score global de la sécurisation de la machine est de 62
+
+Q3.11)NON
