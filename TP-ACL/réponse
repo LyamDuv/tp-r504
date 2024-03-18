@@ -1,0 +1,47 @@
+Q1.1)
+
+Q1.2) 0644
+
+Q1.3) 0755
+
+Q1.4) 0022
+
+Q1.5)Non le umask n'a pas changer (propre à la console)
+
+Q1.6) Pour fichier et dossier  022 (666-022=655)
+
+Q2.1)config-5.10.0-28-amd64
+
+Q2.2)cat /boot/config-$(uname -r)
+
+Q2.3)grep ACL /boot/config-$(uname -r)| wc -l      il y en a 16. Oui les ACL sont activées.
+
+Q2.4) sudo tune2fs -l /dev/sda1
+Oui les ACL sont disponibles sur le system de fichier Default mount options:    user_xattr acl.
+
+Q2.6) c'est l'option -R ou --recursive
+
+Q2.11) NON 
+
+Q2.12)Il ya les droits du user2 en plus.
+
+Q2.13)sudo setfacl -m u:user2:rwx dbidon
+
+
+Q3)Analyse de l’existant)sudo find / -type f -perm /4000 2>/dev/null | wc -l
+
+45
+sudo find / -type f -perm /4000 -exec ls -al {} \; 2>/dev/null
+
+
+Q3.5) time(2)
+
+Q3.10) Impossible d'ouvrir le fichier
+./toplog Hello
+arg=Hello
+Error opening file
+
+
+Q3.11) sudo chown root:root toplog
+
+Q3.12)sudo chmod u+s toplog
